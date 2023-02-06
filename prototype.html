@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // object literal 
+        let player1 = {
+            name: 'Dynno',
+            level: 5,
+            energi: 10,
+            makan: function (tambah) {
+                this.energi = this.energi + tambah;
+                console.log(`Hay, ${this.name} anda sudah menambah energi`)
+            }
+        }
+
+        // function declaration
+        function Kendaraan(nama, pertalite) {
+            let kendaraan = {}
+            kendaraan.nama = nama;
+            kendaraan.pertalite = pertalite;
+
+            kendaraan.tambah = function (jumlah) {
+                this.pertalite += jumlah;
+                console.log(`Kendaraan ${nama} sudah selesai mengisi pertalite`);
+            }
+
+            kendaraan.perjalanan = function (jarak) {
+                this.pertalite -= jarak;
+                console.log(`Motor ${nama} telah melakukan perjelanan`)
+            }
+
+            return kendaraan;
+        }
+
+        let mio = Kendaraan("MIO", 4);
+        let supra = Kendaraan("SUPRA", 5);
+
+        // konstructor function
+        // mengunakan keywoard new
+        // mirip dengan function declarion tetapi didak perlu menulis deklarasi variabel & return
+        function Mobil(nama, pertalite) {
+            this.nama = nama;
+            this.pertalite = pertalite;
+
+            this.tambah = function (jumlah) {
+                this.pertalite += jumlah;
+                console.log(`Mobil ${nama} sudah selesai mengisi pertalite`);
+            }
+
+            this.perjalanan = function (jarak) {
+                this.pertalite -= jarak;
+                console.log(`Mobil ${nama} telah melakukan perjelanan`)
+            }
+        }
+
+        let mobilFortuner = new Mobil("Fortuner", 100);
+    </script>
+</body>
+
+</html>
