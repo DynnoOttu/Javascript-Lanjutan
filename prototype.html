@@ -11,31 +11,36 @@
 <body>
     <script>
         // object literal 
-        let player1 = {
-            name: 'Dynno',
-            level: 5,
-            energi: 10,
-            makan: function (tambah) {
-                this.energi = this.energi + tambah;
-                console.log(`Hay, ${this.name} anda sudah menambah energi`)
+        // PROBLEM: Tidak efektif untuk objek yang banyak
+        // let player1 = {
+        //     name: 'Dynno',
+        //     level: 5,
+        //     energi: 10,
+        //     makan: function (tambah) {
+        //         this.energi = this.energi + tambah;
+        //         console.log(`Hay, ${this.name} anda sudah menambah energi`)
+        //     }
+        // }
+
+
+
+        // function declaration
+        const dataKendaraan = {
+            tambah: function (jumlah) {
+                this.pertalite += jumlah;
+                console.log(`Kendaraan ${this.nama} sudah selesai mengisi pertalite`);
+            },
+            perjalanan: function (jarak) {
+                this.pertalite -= jarak;
+                console.log(`Motor ${this.nama} telah melakukan perjelanan`)
             }
         }
 
-        // function declaration
+
         function Kendaraan(nama, pertalite) {
-            let kendaraan = {}
+            let kendaraan = Object.create(dataKendaraan)
             kendaraan.nama = nama;
             kendaraan.pertalite = pertalite;
-
-            kendaraan.tambah = function (jumlah) {
-                this.pertalite += jumlah;
-                console.log(`Kendaraan ${nama} sudah selesai mengisi pertalite`);
-            }
-
-            kendaraan.perjalanan = function (jarak) {
-                this.pertalite -= jarak;
-                console.log(`Motor ${nama} telah melakukan perjelanan`)
-            }
 
             return kendaraan;
         }
@@ -46,22 +51,22 @@
         // konstructor function
         // mengunakan keywoard new
         // mirip dengan function declarion tetapi didak perlu menulis deklarasi variabel & return
-        function Mobil(nama, pertalite) {
-            this.nama = nama;
-            this.pertalite = pertalite;
+        // function Mobil(nama, pertalite) {
+        //     this.nama = nama;
+        //     this.pertalite = pertalite;
 
-            this.tambah = function (jumlah) {
-                this.pertalite += jumlah;
-                console.log(`Mobil ${nama} sudah selesai mengisi pertalite`);
-            }
+        //     this.tambah = function (jumlah) {
+        //         this.pertalite += jumlah;
+        //         console.log(`Mobil ${nama} sudah selesai mengisi pertalite`);
+        //     }
 
-            this.perjalanan = function (jarak) {
-                this.pertalite -= jarak;
-                console.log(`Mobil ${nama} telah melakukan perjelanan`)
-            }
-        }
+        //     this.perjalanan = function (jarak) {
+        //         this.pertalite -= jarak;
+        //         console.log(`Mobil ${nama} telah melakukan perjelanan`)
+        //     }
+        // }
 
-        let mobilFortuner = new Mobil("Fortuner", 100);
+        // let mobilFortuner = new Mobil("Fortuner", 100);
     </script>
 </body>
 
